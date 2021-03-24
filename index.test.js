@@ -44,13 +44,24 @@ describe('[Exercise 4] Counter', () => {
     counter = new utils.Counter(3) // each test must start with a fresh couter
   })
   it('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
-    // ✨ test away
+    const result = counter.countDown();
+    expect(result).toBe(3);
   })
   it('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
-    // ✨ test away
+    const firstCall = counter.countDown();
+    expect(firstCall).toBe(3);
+    const secondCall = counter.countDown();
+    expect(secondCall).toBe(2);
   })
   it('[8] the count eventually reaches zero but does not go below zero', () => {
-    // ✨ test away
+    const firstCall = counter.countDown();
+    expect(firstCall).toBe(3);
+
+    const secondCall = counter.countDown();
+    expect(secondCall).toBe(2);
+
+    const thirdCall = counter.countDown();
+    expect(thirdCall).toBe(1);
   })
 })
 
@@ -60,22 +71,63 @@ describe('[Exercise 5] Seasons', () => {
     seasons = new utils.Seasons() // each test must start with fresh seasons
   })
   it('[9] the FIRST call of seasons.next returns "summer"', () => {
-    // ✨ test away
+    const firstCall = seasons.next();
+    expect(firstCall).toBe('summer');
   })
   it('[10] the SECOND call of seasons.next returns "fall"', () => {
-    // ✨ test away
+    const firstCall = seasons.next();
+    expect(firstCall).toBe('summer');
+
+    const secondCall = seasons.next();
+    expect(secondCall).toBe('fall');
   })
   it('[11] the THIRD call of seasons.next returns "winter"', () => {
-    // ✨ test away
+    const firstCall = seasons.next();
+    expect(firstCall).toBe('summer');
+
+    const secondCall = seasons.next();
+    expect(secondCall).toBe('fall');
+
+    const thirdCall = seasons.next();
+    expect(thirdCall).toBe('winter');
   })
   it('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    // ✨ test away
+    const firstCall = seasons.next();
+    expect(firstCall).toBe('summer');
+
+    const secondCall = seasons.next();
+    expect(secondCall).toBe('fall');
+
+    const thirdCall = seasons.next();
+    expect(thirdCall).toBe('winter');
+
+    const fourthCall = seasons.next();
+    expect(fourthCall).toBe('spring');
   })
   it('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    // ✨ test away
+    const firstCall = seasons.next();
+    expect(firstCall).toBe('summer');
+
+    const secondCall = seasons.next();
+    expect(secondCall).toBe('fall');
+
+    const thirdCall = seasons.next();
+    expect(thirdCall).toBe('winter');
+
+    const fourthCall = seasons.next();
+    expect(fourthCall).toBe('spring');
+
+    const fifthCall = seasons.next();
+    expect(fifthCall).toBe('summer');
   })
   it('[14] the 40th call of seasons.next returns "spring"', () => {
-    // ✨ test away
+    // ******************COME BACK TO THIS************************
+  //   const fortiethCall = () => {
+  //     for (var i = 0; i < 40; i++) {
+  //     seasons.next();
+  //   }
+  // }
+  // expect(fortiethCall()).toBe('spring');
   })
 })
 

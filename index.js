@@ -50,6 +50,8 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.initialCount = initialNumber;
+    this.counter = 0;
   }
 
   /**
@@ -65,7 +67,15 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    // ✨ implement
+    const beginValue = this.initialCount;
+    const newValue = beginValue - this.counter;
+    if (newValue < 0) {
+      newValue === 0;
+    } else {
+    this.counter++;
+    }
+
+    return newValue;
   }
 }
 
@@ -75,6 +85,7 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.counter = 0;
   }
 
   /**
@@ -91,7 +102,23 @@ class Seasons {
    */
   next() {
     // ✨ implement
-  }
+    if (this.counter === 0) {
+      this.counter++;
+      return 'summer';
+    } else if (this.counter === 1) {
+      this.counter++;
+      return 'fall';
+    } else if (this.counter === 2) {
+      this.counter++;
+      return 'winter';
+    } else if (this.counter === 3) {
+      this.counter = 0;
+      return 'spring';
+    } else {
+      return 'uh oh.. something is broke 😥';
+    }
+  };
+
 }
 
 class Car {
