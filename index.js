@@ -8,7 +8,11 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-}
+  return Object.keys(obj).reduce(function(acc, key) {
+    acc[key.trim()] = typeof obj[key] == 'string' ? obj[key].trim() : trimProperties(obj[key]);
+    return acc;
+  }, Array.isArray(obj) ? [] : {});
+};
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -20,7 +24,11 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
-}
+  return Object.keys(obj).reduce(function(acc, key) {
+    acc[key.trim()] = typeof obj[key] == 'string' ? obj[key].trim() : trimPropertiesMutation(obj[key]);
+    return acc;
+  }, Array.isArray(obj) ? [] : {});
+};
 
 /**
  * [Exercise 3] findLargestInteger finds the largest integer in an array of integers
@@ -31,7 +39,8 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([2, 1, 7, 3, 14, 7]) // returns 14
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+  const numbersArray = integers.sort((a, b) => (b - a));
+  return numbersArray[0];
 }
 
 class Counter {

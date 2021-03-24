@@ -9,22 +9,32 @@ describe('[Exercise 1] trimProperties', () => {
     expect(actual).toEqual(expected)
   })
   it('[2] returns a copy, leaving the original object intact', () => {
-    // ✨ test away
+    const input = { foo: '  foo  ', bar: '  bar  ', baz: '  baz  ' };
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' };
+    const actual = utils.trimProperties(input);
+    expect(actual).toEqual(expected);
   })
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
   it('[3] returns an object with the properties trimmed', () => {
-    // ✨ test away
+    const input = { foo: '  foo  ', bar: '  bar  ', baz: '  baz  ' };
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' };
+    const actual = utils.trimPropertiesMutation(input);
+    expect(actual).toEqual(expected);
   })
   it('[4] the object returned is the exact same one we passed in', () => {
-    // ✨ test away
+    const input = { foo: '  foo  ', bar: '  bar  ', baz: '  baz  ' };
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' };
+    const actual = utils.trimPropertiesMutation(input);
+    expect(actual).toEqual(expected);
   })
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
   it('[5] returns the largest number in an array of numbers', () => {
-    // ✨ test away
+    const result = utils.findLargestInteger([2, 1, 7, 3, 14, 7]);
+    expect(result).toBe(14);
   })
 })
 

@@ -16,5 +16,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-testing1-project.git"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
   }
 }
