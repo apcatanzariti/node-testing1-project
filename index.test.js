@@ -137,17 +137,32 @@ describe('[Exercise 6] Car', () => {
     focus = new utils.Car('focus', 20, 30) // each test must start with a fresh car
   })
   it('[15] driving the car returns the updated odometer', () => {
-    // ✨ test away
-  })
+    const driving = focus.drive(100);
+    expect(driving).toBe(100);
+
+    const moreMiles = focus.drive(100);
+    expect(moreMiles).toBe(200);
+
+    const evenMoreMiles = focus.drive(400);
+    expect(evenMoreMiles).toBe(600);
+
+    const outOfGas = focus.drive(1);
+    expect(outOfGas).toBe(600);
+  });
+
   it('[16] driving the car uses gas', () => {
-    // ✨ test away
-  })
+    const usesGas = focus.drive(90);
+    expect(focus).toHaveProperty('fuel', 17);
+  });
+
   it('[17] refueling allows to keep driving', () => {
     // ✨ test away
-  })
+  });
+
   it('[18] adding fuel to a full tank has no effect', () => {
     // ✨ test away
-  })
+  });
+
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {

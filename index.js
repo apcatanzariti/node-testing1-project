@@ -129,9 +129,11 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
+    this.odometer = 0 // car initializes with zero miles
+    this.tank = tankSize // car initializes full of gas
     // ✨ initialize whatever other properties are needed
+    this.mpg = mpg
+    this.fuel = tankSize
   }
 
   /**
@@ -148,7 +150,17 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    // ✨ implement
+    if ((distance / this.mpg) >= this.fuel) {
+      const actualDistance = this.fuel * this.mpg;
+      this.odometer += actualDistance;
+      this.fuel = 0;
+      return this.odometer;
+    } else {
+      const gasUsed = distance / this.mpg;
+      const gasTank = this.fuel - gasUsed;
+      this.fuel = gasTank;
+      return this.odometer += distance
+    }
   }
 
   /**
