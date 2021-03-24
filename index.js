@@ -204,8 +204,14 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  // ✨ implement
-}
+  if (number % 2 === 0) {
+    return Promise.resolve(true);
+  } else if (number % 2 > 0) {
+    return Promise.resolve(false);
+  } else {
+    return Promise.resolve(`number must be a number`)
+  }
+};
 
 module.exports = {
   trimProperties,
