@@ -175,7 +175,12 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    if ((gallons + this.fuel) > 20) {
+      this.fuel = 20;
+      return this.fuel;
+    } else {
+      return this.fuel += gallons;
+    }
   }
 }
 

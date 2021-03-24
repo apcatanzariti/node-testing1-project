@@ -153,14 +153,39 @@ describe('[Exercise 6] Car', () => {
   it('[16] driving the car uses gas', () => {
     const usesGas = focus.drive(90);
     expect(focus).toHaveProperty('fuel', 17);
+
+    const usesAllGas = focus.drive(510);
+    expect(focus).toHaveProperty('fuel', 0);
   });
 
   it('[17] refueling allows to keep driving', () => {
-    // ✨ test away
+    const emptyFuel = focus.drive(600);
+    expect(focus).toHaveProperty('fuel', 0);
+
+    const fillHalfTank = focus.refuel(10);
+    expect(focus).toHaveProperty('fuel', 10);
+
+    // only 10 gallons left but we 'put in' 20 and still only 20 gallons in there
+    const overfillTank = focus.refuel(20);
+    expect(focus).toHaveProperty('fuel', 20);
+
+    // drive some more after refilling. Drain half the tank by going 300 miles which is correct
+    const keepDriving = focus.drive(300);
+    expect(focus).toHaveProperty('fuel', 10);
   });
 
   it('[18] adding fuel to a full tank has no effect', () => {
-    // ✨ test away
+    const noMoreFuel = focus.refuel(1);
+    expect(focus.fuel).toBe(20);
+
+    const useTwoGallons = focus.drive(60);
+    expect(focus.fuel).toBe(18);
+
+    const fillOneGallon = focus.refuel(1);
+    expect(focus.fuel).toBe(19);
+
+    const topOff = focus.refuel(1);
+    expect(focus.fuel).toBe(20);
   });
 
 })
